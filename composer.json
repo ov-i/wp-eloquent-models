@@ -1,13 +1,18 @@
 {
-    "name": "cmachu/wp-eloquent-models",
+    "name": "ov-i/wp-eloquent-models",
     "description": "A Laravel wrapper for wordpress which turns all Wordpress models into Laravel Eloquent Models.",
     "keywords": ["wordpress", "eloquent", "laravel"],
+    "version": "1.0.0",
     "homepage": "https://github.com/mallardduck/wp-eloquent-models",
     "support": {
         "issues": "https://github.com/mallardduck/wp-eloquent-models/issues",
         "source": "https://github.com/mallardduck/wp-eloquent-models"
     },
     "authors": [
+        {
+            "name": "Bartosz (ov-i) Pazdur",
+            "email": "ov@swiat-ov.pl"
+        },
         {
             "name": "Dan Pock",
             "email": "self@danpock.me"
@@ -18,12 +23,13 @@
         }
     ],
     "require": {
-        "php": "^8.1",
-        "illuminate/database": "^9.0"
+        "php": "^8.2",
+        "illuminate/database": "^11.15.0"
     },
     "require-dev": {
         "squizlabs/php_codesniffer": "^3.0@dev",
-        "phpcompatibility/php-compatibility": "*"
+        "phpcompatibility/php-compatibility": "*",
+        "laravel/pint": "dev-main"
     },
     "autoload": {
         "psr-4": {
@@ -45,5 +51,10 @@
         "tareq1988/wp-eloquent": "1.*"
     },
     "license": "MIT",
-    "minimum-stability": "dev"
+    "minimum-stability": "stable",
+    "config": {
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": false
+        }
+    }
 }

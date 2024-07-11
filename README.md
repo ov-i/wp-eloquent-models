@@ -1,32 +1,36 @@
-Wordpress Laravel Eloquent Models PHP >= 8.1
+Wordpress Laravel Eloquent Models PHP >= 8.2
 ===========================
 
 <p align="center">
-<img src="http://drewjbartlett.com/images/github/logo-laravel.svg">
-<img src="http://drewjbartlett.com/images/github/wordpress-logo.png">
+<img src="https://avatars.githubusercontent.com/u/958072?s=200&v=4">
+<img src="https://avatars.githubusercontent.com/u/276006?s=200&v=4">
 </p>
 
-A forked library for PHP >= 8.1 that converts converts wordpress tables into [Laravel Eloquent Models](https://laravel.com/docs/5.4/eloquent). This is can be helpful for any wordpress project where maybe you'd rather use the awesome features of Laravel's Eloquent.
+A forked library for PHP >= 8.2 that converts converts wordpress tables into laravel 11 [Laravel Eloquent Models](https://laravel.com/docs/11.x/eloquent). This is can be helpful for any wordpress project where maybe you'd rather use the awesome features of Laravel's Eloquent.
 
 Or maybe you're building a project using Laravel and Roots Bedrock/Sage/etc and want to access WordPress data within Laravel. Or maybe you're writing an API with something like [Slim](https://www.slimframework.com/) or better yet [Lumen](https://lumen.laravel.com/) don't want to increase your load time by loading the entire WP core.
 
-This is a great boiler plate based off [Eloquent](https://laravel.com/docs/5.4/eloquent) by Laravel to get you going.
+This is a great boiler plate based off [Eloquent](https://laravel.com/docs/11.x/eloquent) by Laravel to get you going.
 
-*Note:* This is documentation for additional functionality on top of Eloquent. For documentation on all of Eloquent's features you visit the [documentation](https://laravel.com/docs/5.4/eloquent).
+*Note:* This is documentation for additional functionality on top of Eloquent. For documentation on all of Eloquent's features you visit the [documentation](https://laravel.com/docs/11.x/eloquent).
 
 # Overview
- - [Installation](#installing-wpeloquent)
- - [Setup](#setup---common)
- - [Setup with Laravel](#setup-with-laravel)
- - [Posts](#posts)
- - [Comments](#comments)
- - [Terms](#terms)
- - [Users](#users)
- - [Meta](#meta)
- - [Options](#options)
- - [Links](#links)
- - [Extending your own models](#extending-your-own-models)
- - [Query Logs](#query-logs)
+- [Wordpress Laravel Eloquent Models PHP \>= 8.2](#wordpress-laravel-eloquent-models-php--82)
+- [Overview](#overview)
+  - [Installing WPEloquent](#installing-wpeloquent)
+  - [Version Guidance](#version-guidance)
+  - [Setup - Common](#setup---common)
+  - [Setup with Laravel](#setup-with-laravel)
+  - [Supported Models](#supported-models)
+    - [Posts](#posts)
+    - [Comments](#comments)
+    - [Terms](#terms)
+    - [Users](#users)
+    - [Meta](#meta)
+    - [Options](#options)
+    - [Links](#links)
+  - [Extending your own models](#extending-your-own-models)
+  - [Query Logs](#query-logs)
 
 ## Installing WPEloquent
 
@@ -34,11 +38,11 @@ The recommended way to install WPEloquent is through
 [Composer](https://getcomposer.org/).
 
 ```bash
-composer require mallardduck/wp-eloquent-models
+composer require ov-i/wp-eloquent-models
 ```
 
 ## Version Guidance
-Current version: 0.4.2
+Current version: 1.0.0
 
 ## Setup - Common
 
@@ -100,7 +104,7 @@ These directions are for when you want to work with WordPress database using Elo
 ```
 *Note:* In this example the WordPress database and Laravel database can be accessed on the same server by the same MySQL user. The laravel `.env` of your project may need to be adjusted to match this example.
 
-Then in your `AppServiceProvider` add the following line:
+Then in your `bootstrap/providers.php/AppServiceProvider` add the following line:
 ```php
 BaseModel::setDefaultConnection('wordpress');
 ```
@@ -128,13 +132,13 @@ $post->meta;
 
 ***Statuses***
 
-By default, the `Post` returns posts with all statuses. You can however override this with the [local scope](https://laravel.com/docs/5.3/eloquent#query-scopes) `published` to return only published posts.
+By default, the `Post` returns posts with all statuses. You can however override this with the [local scope](https://laravel.com/docs/11.x/eloquent#query-scopes) `published` to return only published posts.
 
 ```php
 Post::published()->get();
 ```
 
-Or if you need a specific status you can override with defined status via [local scope](https://laravel.com/docs/5.3/eloquent#query-scopes).
+Or if you need a specific status you can override with defined status via [local scope](https://laravel.com/docs/11.x/eloquent#query-scopes).
 
 ```php
 Post::status('draft')->get();
@@ -142,7 +146,7 @@ Post::status('draft')->get();
 
 ***Post Types***
 
-By default, the `Post` returns posts with all post types. You can however override this by defining a post type via [local scope](https://laravel.com/docs/5.3/eloquent#query-scopes).
+By default, the `Post` returns posts with all post types. You can however override this by defining a post type via [local scope](https://laravel.com/docs/11.x/eloquent#query-scopes).
 
 ```php
 Post::type('page')->get();
